@@ -11,16 +11,19 @@
     "@babel/plugin-transform-runtime": "^7.7.4",
     "@babel/preset-env": "7.7.4",
     "@babel/runtime": "^7.7.4",
+    "acorn": "^7.1.0",
     "eslint": "^6.7.2",
     "eslint-config-prettier": "^6.7.0",
-    "inquirer": "^7.0.0",
+    "eslint-plugin-vue": "^6.0.1",
     "jest": "^24.9.0",
-    "npm-run-all": "^4.1.5",
+    "nodemon": "^2.0.1",
     "rollup": "^1.27.8",
     "rollup-plugin-babel": "^4.3.3",
     "rollup-plugin-commonjs": "^10.1.0",
     "rollup-plugin-node-resolve": "^5.2.0",
-    "rollup-plugin-terser": "^5.1.2"
+    "rollup-plugin-terser": "^5.1.2",
+    "xml": "^1.0.1",
+    "xml2js": "^0.4.22"
   },
   "files": [
     "src",
@@ -41,14 +44,10 @@
   },
   "scripts": {
     "build": "rollup -c",
-    "dev": "run-p watch start",
+    "dev": "nodemon __tests__/index.test.js",
     "lint": "eslint --fix src/",
-    "postinstall": "",
-    "start": "",
     "test": "jest",
-    "test:watch": "jest --watch",
-    "updateinfo": "node update-info && npm run lint",
-    "watch": "rollup -c -w"
+    "test:watch": "jest --watch"
   },
   "version": "0.0.1"
 }
