@@ -2,8 +2,6 @@ const fs = require('fs')
 const util = require('util')
 const exec = util.promisify(require('child_process').exec)
 const pkg = require('./package.json')
-
-// eslint-disable-next-line
 const inquirer = require('inquirer')
 
 async function setup() {
@@ -45,7 +43,8 @@ async function setup() {
       pkg.bugs.url = `${baseGitUrl}/issues`
       pkg.repository.url = `git+${baseGitUrl}.git`
 
-      pkg.scripts.postinstall = 'npm run test'
+      // pkg.scripts.postinstall = 'npm run test'
+      pkg.scripts.postinstall = ''
 
       // generate readme
       fs.writeFileSync('./README.md', `# ${name}\n\n${answers.description}`)

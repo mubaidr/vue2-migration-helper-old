@@ -1,6 +1,6 @@
 const lib = require('../src/index')
 
-describe('mymodule', () => {
+describe('vue2-migration-helper', () => {
   test('should be defined', () => {
     expect(lib).toBeDefined()
     expect(lib).toBeInstanceOf(Function)

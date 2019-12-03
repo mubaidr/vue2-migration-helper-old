@@ -9,7 +9,7 @@ module.exports = {
     node: true,
     jest: true,
   },
-  extends: ['airbnb', 'prettier'],
+  extends: ['eslint:recommended', 'prettier'],
   globals: {},
   rules: {
     semi: 0,
