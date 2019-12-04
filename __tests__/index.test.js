@@ -1,40 +1,16 @@
-// const lib = require('../src/index')
-const fs = require('fs')
-const { Parser: JsParser } = require('acorn')
-const xml2js = require('xml2js')
-// const xml = require('xml')
+const lib = require('../src/index')
 
-// TODO: add reactive properties definitions
-// TODO: convert computed syntax
-// TODO: convert watch syntax
-// TODO: convert methods syntax
-// TODO: convert life-cycle hooks
-// TODO: convert props syntax
-
-// Read vue file content
-const source = fs.readFileSync('./__tests__/text.vue', 'utf-8')
-
-xml2js.parseStringPromise(`<root>${source}</root>`).then(template => {
-  const ast = JsParser.parse(template.root.script, {
-    ecmaVersion: 11,
-    sourceType: 'module',
-    // locations: true,
-    // ranges: true,
-    // sourceFile: true,
+describe('vue2-migration-helper', () => {
+  test('should be defined', () => {
+    expect(lib).toBeDefined()
+    expect(lib).toBeInstanceOf(Function)
   })
 
-  const sections = Object.values(ast.body[0].declaration.properties)
-
-  sections.forEach(section => {
-    const { key, value } = section
-    const { name } = key
-    console.log(name, key, value)
+  test('should be able to extract js ast from vue sfc', () => {
+    expect(
+      lib({
+        path: './__tests__/text.vue',
+      })
+    ).toBeDefined()
   })
 })
-
-// describe('vue2-migration-helper', () => {
-//   test('should be defined', () => {
-//     expect(lib).toBeDefined()
-//     expect(lib).toBeInstanceOf(Function)
-//   })
-// })
